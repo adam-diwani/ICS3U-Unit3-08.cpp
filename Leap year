@@ -1,0 +1,43 @@
+// Copyright (c) 2020, Adam Diwani All rights reserved
+//
+// Created by: Adam Diwani
+// Created on: December 13, 2020
+// This program tells users if a year is a leap year or not
+
+
+#include <iostream>
+#include <string>
+
+
+int main() {
+    // Function figures out if an inputted year is a leap year
+
+    std::string leapYearString;
+    int leapYear;
+
+    // Input
+    std::cout << "Enter a year: ";
+    std::cin >> leapYearString;
+
+    // Process
+    try {
+        leapYear = std::stoi(leapYearString);
+
+        if (leapYear % 4 == 0) {
+            if (leapYear % 100 != 0) {
+            std::cout << "This is a leap year." << std::endl;
+            } else {
+                if (leapYear % 400 == 0) {
+                    std::cout << "This is a leap year." << std::endl;
+                } else {
+                    std::cout << "This is not a leap year." << std::endl;
+                }
+            }
+        } else {
+            std::cout << "This is not a leap year." << std::endl;
+        }
+    } catch (std::invalid_argument) {
+        // Output
+        std::cout << "This year is not valid." << std::endl;
+    }
+}
